@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-  max-width: 80%;
+  max-width: 50%;
   margin: 0 auto;
   font-size: 1em;
 }
@@ -23,70 +23,60 @@ body {
   border-bottom: 1px solid #A9A9A9;
 }
 
-.memes-list {
-  list-style: none;
-}
-
 .memes-item {
-  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 5%;
-  border-bottom: 1px solid #A9A9A9;
-  padding: 2% 0;
+  gap: 1em;
+  border-bottom: 0.1em solid #A9A9A9;
+  padding: 1em 0;
   cursor: pointer;
 }
 
-.memes-item__input {
-  position: absolute;
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  z-index: 1;
-  opacity: 0;
+.memes-item__label {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
 .memes-item__top {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
 }
 
-.memes-item__top-title {
+.memes-item__title {
   font-size: 1.5rem;
 }
 
-.memes-item__top-icon {
-  background-image: url("./assets/icons/plus-solid.svg");
+.memes-item__icon {
+  background: url("./assets/icons/plus-solid.svg") center no-repeat;
   width: 0;
   height: 0;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  transition-duration: 0.3s;
+  transition: all 0.7s;
 }
 
 .memes-item__img {
   align-self: center;
   width: 0;
-  transition-duration: 0.7s;
+  transition: all 0.7s;
 }
 
-.memes-list:hover .memes-item__top-icon {
-  width: 1em;
-  height: 1em;
+.memes-list:hover .memes-item__icon {
+  width: 1.5em;
+  height: 1.5em;
 }
 
-.memes-item:hover .memes-item__top-icon {
+.memes-item:hover .memes-item__icon,
+.memes-item__input:checked~.memes-item__label .memes-item__icon {
   transform: rotate(45deg);
 }
 
 .memes-item:hover .memes-item__img,
-.memes-item__input:checked~.memes-item__img {
+.memes-item__input:checked~.memes-item__label .memes-item__img {
   width: 30%;
 }
 
-.memes-item__input:checked~.memes-item__top {
+.memes-item__input:checked~.memes-item__label  {
   text-decoration: underline;
 }
